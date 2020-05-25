@@ -22,7 +22,7 @@ For prediction file:
     
 python predict.py
 
-All customizable parameters are in  29  to 33 in predict file file.
+All customizable parameters are in  29  to 33 in predict file.
 
 input_file format:
 sentence1
