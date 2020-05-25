@@ -1,7 +1,5 @@
 import numpy as np 
-import pandas as pd 
 import re
-from tqdm import tqdm
 from keras import initializers
 from keras import backend as K
 from keras.engine import InputSpec, Layer
@@ -82,7 +80,7 @@ def clean_data(sentences):
 
 
 def sentence_to_embedding(sentences,tokenizer):
-    print(sentences)
+    # print(sentences)
     sequences = tokenizer.texts_to_sequences(sentences)
     sequences_matrix = sequence.pad_sequences(sequences,maxlen=15)
     

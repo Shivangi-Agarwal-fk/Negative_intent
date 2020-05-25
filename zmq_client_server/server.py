@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
 
 from __future__ import division
 from __future__ import print_function
@@ -22,8 +20,6 @@ import sys
 from keras import backend as K
 import random
 
-
-# In[2]:
 
 
 class Server(object):
@@ -119,40 +115,26 @@ class Server(object):
 
            
 
-
-# In[ ]:
-
-
 if __name__ == '__main__':
     
-#         arguments =  sys.argv
-#         ipaddr=arguments[1]
-#         port=arguments[2]
-#         model_path=arguments[3]
-#         tokenizer_path=arguments[4]
+        arguments =  sys.argv
+        ipaddr=arguments[1]
+        port=arguments[2]
+        model_path=arguments[3]
+        tokenizer_path=arguments[4]
         
-#         exp = Server(ipaddr,port,model_path,tokenizer_path)
+        exp = Server(ipaddr,port,model_path,tokenizer_path)
         
         
-        port=8881
-        ipaddr='127.0.0.1'
-        exp = Server(ipaddr,port,'model_files/model.h5',"model_files/tokenizer.pickle")
+        # port=8881
+        # ipaddr='127.0.0.1'
+        # exp = Server(ipaddr,port,'model_files/model.h5',"model_files/tokenizer.pickle")
         
         exp.start()
         
         
         
     
-    
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 

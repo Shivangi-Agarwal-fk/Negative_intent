@@ -121,46 +121,49 @@ class entity_zmq(object):
 
 
 if __name__ == "__main__":
-#     arguments =  sys.argv
-#     ipaddr=arguments[1]
-#     port=arguments[2]
-#     filename=arguments[3]
+    arguments =  sys.argv
+    ipaddr=arguments[1]
+    port=arguments[2]
+    filename=arguments[3]
+    output_file=arguments[4]
     
 
     ##testing by single sentence
-    ipaddr = '127.0.0.1'
-    start = time.time()
-    port = 8881
-    obj = entity_zmq(ipaddr, port)
-    test_sentence = ["पिंक वाला  पीला वाला आता चाहिए    "]
-    outputsent = obj.send_to_negative_intent_classification_server(test_sentence, 'negative_intent')
-    print('completed')
-    print(test_sentence)
-    print('output',outputsent)
-    f = open("output.txt","w")
-    print(outputsent, file=f)
-    
-#     filename="input.txt"
+    # ipaddr = '127.0.0.1'
+    # start = time.time()
+    # port = 8881
+    # obj = entity_zmq(ipaddr, port)
+    # test_sentence = ["पिंक वाला  पीला वाला आता चाहिए    "]
+    # outputsent = obj.send_to_negative_intent_classification_server(test_sentence, 'negative_intent')
+    # print('completed')
+    # print(test_sentence)
+    # print('output',outputsent)
+    # f = open(output_file,"w")
+    # print(outputsent, file=f)
 
-#     if filename != "":
-#         infile = open(filename, 'r')
-#         line_list = []
+    
+    obj = entity_zmq(ipaddr, port)
+    filename="input.txt"
+
+    if filename != "":
+        infile = open(filename, 'r')
+        line_list = []
         
-#         for line_read in infile:
-#             line_read = line_read.strip()
-#             line_list.append(line_read)
-#         start = time.time()
-#         outputsent = obj.send_to_negative_intent_classification_server(line_list, 'negative_intent')
-#         end = time.time()
+        for line_read in infile:
+            line_read = line_read.strip()
+            line_list.append(line_read)
+        start = time.time()
+        outputsent = obj.send_to_negative_intent_classification_server(line_list, 'negative_intent')
+        end = time.time()
         
-#         f = open("output.txt","w")
-#         print(outputsent, file=f)
-#             # if outputsent != "$INVALID$":
-#             #     print line_read, "\n", outputsent
+        f = open(output_file,"w")
+         print(outputsent, file=f)
+            # if outputsent != "$INVALID$":
+            #     print line_read, "\n", outputsent
         
-#         print ("Time required for all the queries : "+str((end-start)*1000)+" ms")
-#         print(outputsent)
-#         print(len(outputsent))
+        print ("Time required for all the queries : "+str((end-start)*1000)+" ms")
+        # print(outputsent)
+        print(len(outputsent))
 
 
 
