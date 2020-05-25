@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[69]:
+
 
 
 import numpy as np
@@ -12,8 +12,6 @@ import json
 import traceback
 import argparse
 
-
-# In[70]:
 
 
 class entity_zmq(object):
@@ -34,13 +32,13 @@ class entity_zmq(object):
         entities = []
         for sentence in sentences:
             words_list = sentence["word_list"]
-            entity = []
+            attn = []
             for words in words_list:
-                entity.append(words["attention_score"])
-            entity.append(sentence["negative_intent"])
-            entity.append(sentence["score"])
+                attn.append(words["attention_score"])
+            attn.append(sentence["negative_intent"])
+            attn.append(sentence["score"])
                 
-            entities.append(' '.join(entity))
+            entities.append(' '.join(attn))
             
             
         
@@ -120,20 +118,6 @@ class entity_zmq(object):
         return opstring_list
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[78]:
-
 
 
 if __name__ == "__main__":
@@ -179,34 +163,7 @@ if __name__ == "__main__":
 #         print(len(outputsent))
 
 
-# In[9]:
 
-
-# input_json = {
-#            "version": 1,
-#            "header":{
-#                "mode": 'negative_intent',
-#            },
-#            "payload":{
-#                "sentences":[ {"word_list": ['Mujhe', 'atta', 'chahiye']}, {"word_list": ['Ye', 'cart', 'me', 'mat', 'daalo']}]
-#            }
-#        }
-
-# #sent from server to client
-# resposne_json =
-#            {
-#                "version": 1,
-#                "header":{
-#                    "status": status,
-#                    "err_msg": err_string
-#                },
-#                "payload":{'sentences':[{'word_list':[{'word': 'Mujhe','attention_score' : '0.33'},{'word': 'atta','attention_score': '0.33'},{'word': 'chahie','attention_score': '0.33'}],
-#                     'negative_intent': False,'score':'.99'},{'word_list':[{'word': 'ye','attention_score' : '0.01'},{'word': 'cart','attention_score': '0.13'},
-#                 {'word': 'me','attention_score': '0.01'},{'word': 'mat','attention_score': '0.85'},{'word': 'daalo','attention_score': '0.00'}], 'negative_intent':True,'score':'.99'}]}
-#            }
-
-
-# In[ ]:
 
 
 
