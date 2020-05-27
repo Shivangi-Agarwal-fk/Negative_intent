@@ -128,7 +128,7 @@ def build_model():
 model=build_model()
 
 if load_prev_model:
-    model=load_model(model_pretrained, custom_objects={'AttentionWithContext': AttentionWithContext})
+    model=load_model(model_pretrained, custom_objects={'Attention': Attention})
 
 model.fit(X_train_sequences,Y_train,batch_size=batch_size,epochs=10,
           validation_split=validation_split,callbacks=[EarlyStopping(monitor='val_loss',min_delta=0.0001)])
